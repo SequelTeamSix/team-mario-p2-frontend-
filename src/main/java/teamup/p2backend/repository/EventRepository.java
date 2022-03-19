@@ -14,9 +14,8 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
     List<Event> findAll();
 
-    Event findById(int event_id);
-
-    //Event findByName(String event_name);
+    @Query(value = "select form event where event.event_name=:event_name", nativeQuery = true)
+    Event findByName(String event_name);
 
     //?Event findBySport(String sport);
 
@@ -24,7 +23,9 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
     //need findBy place, date, time
 
-    void deleteById(int event_id);
+    @Modifying
+    @Query(value = "delete from event where event.event_name=:event_name", nativeQuery = true)
+    void deleteByName(String event_name);
 
     //update(patch/put) 'methods'
 }

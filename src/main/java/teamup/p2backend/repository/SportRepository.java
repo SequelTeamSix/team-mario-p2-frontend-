@@ -16,15 +16,11 @@ public interface SportRepository extends JpaRepository<Sport, Integer> {
 
     List<Sport> findAll();
 
-    Sport findById(int sport_id);
+    @Query(value = "select from sport where sport.sport_name=:sport_name", nativeQuery = true)
+    Sport findByName(String sport_name);
 
-    //Sport findByType(String sport_name);
+    @Modifying
+    @Query(value = "delete from sport where sport.sport_name=:sport_name", nativeQuery = true)
+    void deleteByName(String sport_name);
 
-    /* Sport findByLevel(String level);
-
-    Sport findByAge(String age_range); */
-
-    void deleteById(int sport_id);
-
-    //update(patch/put) 'methods'
 }

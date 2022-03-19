@@ -19,14 +19,10 @@ public class SportController {
         return sportService.findAllSports();
     }
 
-    //@GetMapping("sport_name/{sport_name}")
-    //public Sport getSportByType(@PathVariable String sport_name){
-    // return sportService.findSportByType(sport_name);
-    //}
 
-    @GetMapping("sport_id/{sport_id}")
-    public Sport getSportById(@PathVariable int sport_id){
-        return sportService.findSportById(sport_id);
+    @GetMapping("sport_name/{sport_name}")
+    public Sport getSport(@RequestParam String sport_name){
+        return sportService.findSport(sport_name);
     }
 
     @PostMapping
@@ -34,11 +30,10 @@ public class SportController {
         return sportService.saveSport(sport);
     }
 
-    @DeleteMapping
-    public void deleteSport(@PathVariable int sport_id){
-        sportService.deleteSport(sport_id);
+    @DeleteMapping()
+    public void deleteSport(@RequestParam String sport_name){
+        sportService.deleteSport(sport_name);
     }
 
-    //@PatchMapping
 
 }

@@ -26,17 +26,13 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    public void deleteEvent(int event_id) {
-        eventRepository.deleteById(event_id);
+    public void deleteEvent(String event_name) {
+        eventRepository.deleteByName(event_name);
     }
 
-    //public Event findEventByName(String event_name) {
-    //    return eventRepository.findByName(event_name);
-    //}
+    public Event findEventByName(String event_name) {
+        return eventRepository.findByName(event_name);}
 
-    public Event findEventById(int event_id) {
-        return eventRepository.findById(event_id);
-    }
 
     //public Event findEventByLevel(String level){
     //    return eventRepository.findByLevel(level);

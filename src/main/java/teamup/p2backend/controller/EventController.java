@@ -22,15 +22,9 @@ public class EventController {
         return eventService.findAllEvents();
     }
 
-    //@GetMapping("event_name/{event_name}")
-    //public Event getEventByName(@PathVariable String event_name){
-    //    return eventService.findEventByName(event_name);
-    // }
+    @GetMapping("event_name/{event_name}")
+    public Event getEventByName(@RequestParam String event_name){return eventService.findEventByName(event_name);}
 
-    @GetMapping("event_id/{event_id}")
-    public Event getEventById(@PathVariable int event_id){
-        return eventService.findEventById(event_id);
-    }
 
     // @GetMapping("level/{level}")
     // public Event getEventByLevel(@PathVariable String level){
@@ -50,8 +44,8 @@ public class EventController {
     }
 
     @DeleteMapping
-    public void deleteEvent(@PathVariable int event_id){
-        eventService.deleteEvent(event_id);
+    public void deleteEvent(@RequestParam String event_name){
+        eventService.deleteEvent(event_name);
     }
 
     //@PatchMapping

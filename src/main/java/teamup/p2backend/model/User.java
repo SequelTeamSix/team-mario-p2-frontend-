@@ -31,7 +31,7 @@ public class User {
     password */
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     //column
     private int user_id1;
     @Column
