@@ -26,24 +26,22 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    public void deleteEvent(String event_name) {
-        eventRepository.deleteByName(event_name);
+    public void deleteEvent(String name) {
+        eventRepository.deleteByName(name);
     }
 
-    public Event findEventByName(String event_name) {
-        return eventRepository.findByName(event_name);}
+    public Event findEventByName(String name) {return eventRepository.findByName(name);}
 
+    //next 3 find queries print All events for some reason - need to fix
+    public Event findEventBySport(String sportname) {return eventRepository.findBySport(sportname);}
 
-    //public Event findEventByLevel(String level){
-    //    return eventRepository.findByLevel(level);
-    //}
+    public Event findEventByPlace(String place){return eventRepository.findByLevel(place);}
 
-    // public Event findEventByAge(String age_range){
-    //    return eventRepository.findByAge(age_range);
-    //}
+    public Event findEventByLevel(String level){return eventRepository.findByLevel(level);}
 
-    //need findBy place, date, time
+    //update
+    public void updateEventName(Event event){eventRepository.updateByName(event.getName(), event.getEvent_id());}
 
-    //update(patch/put) methods
-
+    public void updateEventInfo(Event event){eventRepository.updateInfo(event.getPlace(),event.getDate(),
+            event.getTime(), event.getLevel(), event.getSport().getSportname(), event.getName());}
 }

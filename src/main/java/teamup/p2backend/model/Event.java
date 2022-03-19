@@ -11,7 +11,7 @@ import javax.persistence.*;
 @JsonIdentityInfo(
 
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "event_name" //
+        property = "name" //
 )
 
 @Entity
@@ -21,22 +21,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 public class Event {
-     /* Event
-
-    EventID
-    Place <need to consult>
-    Date
-    Time
-    +Level
-     */
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column
     private int event_id;
-    @Column
-    private String event_name;
+    //@Id
+    //@Column
+    private String name;
     @Column
     private String place;
     @Column
@@ -48,6 +41,6 @@ public class Event {
 
     //relationship to other tables
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "sport_name")
+    @JoinColumn(name = "sportname")
     private Sport sport;
 }

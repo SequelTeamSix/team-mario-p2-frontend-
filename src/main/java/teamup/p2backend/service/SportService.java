@@ -26,12 +26,12 @@ public class SportService {
         return sportRepository.save(sport);
     }
 
-    public void deleteSport(String sport_name) {
-        sportRepository.deleteByName(sport_name);
+    public void deleteSport(String sportname) {
+        sportRepository.deleteByName(sportname);
     }
 
-    public Sport findSport(String sport_name) {
-        return sportRepository.findByName(sport_name);
+    public Sport findSport(String sportname) {
+        return sportRepository.findBySportname(sportname);
     }
 
 }

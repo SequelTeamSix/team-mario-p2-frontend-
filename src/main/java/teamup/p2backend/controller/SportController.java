@@ -7,7 +7,7 @@ import teamup.p2backend.service.SportService;
 import java.util.List;
 
 @RestController
-@RequestMapping("sport") // ?
+@RequestMapping("sport")
 public class SportController {
     SportService sportService;
 
@@ -19,10 +19,9 @@ public class SportController {
         return sportService.findAllSports();
     }
 
-
-    @GetMapping("sport_name/{sport_name}")
-    public Sport getSport(@RequestParam String sport_name){
-        return sportService.findSport(sport_name);
+    @GetMapping("sportname/{sportname}")
+    public Sport getSport(@PathVariable String sportname){
+        return sportService.findSport(sportname);
     }
 
     @PostMapping
@@ -31,8 +30,8 @@ public class SportController {
     }
 
     @DeleteMapping()
-    public void deleteSport(@RequestParam String sport_name){
-        sportService.deleteSport(sport_name);
+    public void deleteSport(@RequestParam String sportname){
+        sportService.deleteSport(sportname);
     }
 
 

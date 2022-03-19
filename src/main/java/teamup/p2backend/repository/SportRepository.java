@@ -16,8 +16,7 @@ public interface SportRepository extends JpaRepository<Sport, Integer> {
 
     List<Sport> findAll();
 
-    @Query(value = "select from sport where sport.sport_name=:sport_name", nativeQuery = true)
-    Sport findByName(String sport_name);
+    Sport findBySportname(String sportname);
 
     @Modifying
     @Query(value = "delete from sport where sport.sport_name=:sport_name", nativeQuery = true)

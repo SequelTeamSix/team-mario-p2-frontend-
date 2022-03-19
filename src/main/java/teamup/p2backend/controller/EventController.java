@@ -7,7 +7,7 @@ import teamup.p2backend.service.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping("event") // ?
+@RequestMapping("event")
 public class EventController {
 
     EventService eventService;
@@ -22,21 +22,18 @@ public class EventController {
         return eventService.findAllEvents();
     }
 
-    @GetMapping("event_name/{event_name}")
-    public Event getEventByName(@RequestParam String event_name){return eventService.findEventByName(event_name);}
+    @GetMapping("name/{name}")
+    public Event getEventByName(@PathVariable String name){return eventService.findEventByName(name);}
 
+    //next 3 find queries print All events for some reason - need to fix
+    @GetMapping("sportname/{sportname}")
+    public Event getEventBySport(@PathVariable String sportname){return eventService.findEventBySport(sportname);}
 
-    // @GetMapping("level/{level}")
-    // public Event getEventByLevel(@PathVariable String level){
-    //    return eventService.findEventByLevel(level);
-    //}
+    @GetMapping("level/{level}")
+    public Event getEventByLevel(@PathVariable String level){return eventService.findEventByLevel(level);}
 
-    //@GetMapping("age_range/{age_range}")
-    //public Event getEventByAge(@PathVariable String age_range){
-    //    return eventService.findEventByAge(age_range);
-    // }
-
-    //need getEventBy place, date, time (&sport??)
+    @GetMapping("place/{place}")
+    public Event getEventByPlace(@PathVariable String place){return eventService.findEventByPlace(place);}
 
     @PostMapping
     public Event postEvent(@RequestBody Event event){
@@ -44,9 +41,13 @@ public class EventController {
     }
 
     @DeleteMapping
-    public void deleteEvent(@RequestParam String event_name){
-        eventService.deleteEvent(event_name);
+    public void deleteEvent(@RequestParam String name){
+        eventService.deleteEvent(name);
     }
 
-    //@PatchMapping
+    @PatchMapping("updateName")
+    public void updateEventName(@RequestBody Event event){eventService.updateEventName(event);}
+
+    @PatchMapping
+    public void updateEventInfo(@RequestBody Event event){eventService.updateEventInfo(event);}
 }
