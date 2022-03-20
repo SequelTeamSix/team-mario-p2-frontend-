@@ -17,7 +17,7 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     Event findByName(String name);
 
     //works
-    @Query(value= "Select * from event where event.sportname=:sportname", nativeQuery = true) //syntax?
+    @Query(value= "Select * from event where event.sportname=:sportname", nativeQuery = true)
     Event findBySport(String sportname);
 
     //works
@@ -27,6 +27,9 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     //works
     @Query(value = "Select * from event where event.level=:level", nativeQuery = true)
     Event findByLevel(String level);
+
+    @Query(value = "Select * from event where event.username=:username", nativeQuery = true)
+    Event findByUser(String username);
 
     //delete
     @Modifying

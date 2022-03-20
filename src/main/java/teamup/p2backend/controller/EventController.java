@@ -29,6 +29,7 @@ public class EventController {
     @GetMapping("sportname/{sportname}")
     public Event getEventBySport(@PathVariable String sportname){return eventService.findEventBySport(sportname);}
 
+    //works
     @GetMapping("place/{place}")
     public Event getEventByPlace(@PathVariable String place){return eventService.findEventByPlace(place);}
 
@@ -36,10 +37,12 @@ public class EventController {
     @GetMapping("level/{level}")
     public Event getEventByLevel(@PathVariable String level){return eventService.findEventByLevel(level);}
 
+    //get event by username -- in progress
+    @GetMapping("username/{username}")
+    public Event getEventByUser(@PathVariable String username){return eventService.findEventByUser(username);}
+
     @PostMapping
-    public Event postEvent(@RequestBody Event event){
-        return eventService.saveEvent(event);
-    }
+    public Event postEvent(@RequestBody Event event){return eventService.saveEvent(event);}
 
     @DeleteMapping
     public void deleteEvent(@RequestParam String name){

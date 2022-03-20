@@ -11,7 +11,7 @@ import javax.persistence.*;
 /*@JsonIdentityInfo(
 
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "user_id" //
+        property = "username1" //
 )*/
 
 @Entity
@@ -24,10 +24,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //column
     private int user_id1;
-    //@Column
+
     private String username1;
+
     @Column
     private String fullname1;
     @Column
