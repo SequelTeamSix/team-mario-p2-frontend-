@@ -16,14 +16,16 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
     Event findByName(String name);
 
-    //next 3 find queries print All events for some reason - need to fix
-    @Query(value= "from event where event.sportname=:sportname", nativeQuery = true)
+    //works
+    @Query(value= "Select * from event where event.sportname=:sportname", nativeQuery = true) //syntax?
     Event findBySport(String sportname);
 
-    @Query(value = "from event where event.place=:place", nativeQuery = true)
+    //works
+    @Query(value = "Select * from event where event.place=:place", nativeQuery = true)
     Event findByPlace(String place);
 
-    @Query(value = "from event where event.level=:level", nativeQuery = true)
+    //works
+    @Query(value = "Select * from event where event.level=:level", nativeQuery = true)
     Event findByLevel(String level);
 
     //delete

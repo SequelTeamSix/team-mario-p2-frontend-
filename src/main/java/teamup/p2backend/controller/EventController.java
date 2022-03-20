@@ -25,15 +25,16 @@ public class EventController {
     @GetMapping("name/{name}")
     public Event getEventByName(@PathVariable String name){return eventService.findEventByName(name);}
 
-    //next 3 find queries print All events for some reason - need to fix
+    //works
     @GetMapping("sportname/{sportname}")
     public Event getEventBySport(@PathVariable String sportname){return eventService.findEventBySport(sportname);}
 
-    @GetMapping("level/{level}")
-    public Event getEventByLevel(@PathVariable String level){return eventService.findEventByLevel(level);}
-
     @GetMapping("place/{place}")
     public Event getEventByPlace(@PathVariable String place){return eventService.findEventByPlace(place);}
+
+    //works
+    @GetMapping("level/{level}")
+    public Event getEventByLevel(@PathVariable String level){return eventService.findEventByLevel(level);}
 
     @PostMapping
     public Event postEvent(@RequestBody Event event){
@@ -47,5 +48,5 @@ public class EventController {
 
     @PatchMapping
     public void updateEvent(@RequestBody Event event){eventService.updateEvent(event);}
-    
+
 }

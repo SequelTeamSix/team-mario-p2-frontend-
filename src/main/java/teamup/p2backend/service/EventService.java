@@ -32,11 +32,13 @@ public class EventService {
 
     public Event findEventByName(String name) {return eventRepository.findByName(name);}
 
-    //next 3 find queries print All events for some reason - need to fix
+    //works
     public Event findEventBySport(String sportname) {return eventRepository.findBySport(sportname);}
 
-    public Event findEventByPlace(String place){return eventRepository.findByLevel(place);}
+    //works
+    public Event findEventByPlace(String place){return eventRepository.findByPlace(place);}
 
+    //works
     public Event findEventByLevel(String level){return eventRepository.findByLevel(level);}
 
     //update
@@ -44,6 +46,4 @@ public class EventService {
             event.getDate(), event.getTime(), event.getLevel(), event.getSport().getSportname(),
             event.getEvent_id());}
 
-    /*public void updateEventInfo(Event event){eventRepository.updateInfo(event.getPlace(),event.getDate(),
-            event.getTime(), event.getLevel(), event.getSport().getSportname(), event.getName());} */
 }

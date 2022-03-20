@@ -32,12 +32,8 @@ public class UserService {
     public User findUserById(int user_id) {return userRepository.findById(user_id);}
 
     public User findUserByUsername(String username1){return userRepository.findByUsername1(username1);}
-
-    //public User findUserByEmail(String email){
-    //    return userRepository.findByEmail(email);
-    //}
-
-    //update(patch/put) method
+    
+    //update(patch) method
     public void updateUser(User user){userRepository.updateByUser(user.getUsername1(),
             user.getFullname1(),user.getEmail1(), user.getPassword1(), user.getUser_id1());}
 
