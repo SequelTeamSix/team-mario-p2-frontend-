@@ -12,13 +12,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     User save(User user);
 
-    List<User> findAll();
+
+    List<User> findAll(); //probably don't need this for now
 
     User findById(int user_id);
 
     User findByUsername1(String username1);
-
-    //User findByEmail(String email);
 
     @Modifying
     @Query(value = "delete from user1 where user1.username1=:username1", nativeQuery = true)

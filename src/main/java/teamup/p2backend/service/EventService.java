@@ -41,6 +41,8 @@ public class EventService {
     //works
     public Event findEventByLevel(String level){return eventRepository.findByLevel(level);}
 
+    public Event findEventByUser(String username){return eventRepository.findByUser(username);}
+
     //update
     public void updateEvent(Event event){eventRepository.updateEvent(event.getName(), event.getPlace(),
             event.getDate(), event.getTime(), event.getLevel(), event.getSport().getSportname(),

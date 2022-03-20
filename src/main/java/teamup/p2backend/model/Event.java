@@ -25,11 +25,10 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column
     private int event_id;
-    //@Id
-    //@Column
+
     private String name;
+
     @Column
     private String place;
     @Column
@@ -43,4 +42,11 @@ public class Event {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportname")
     private Sport sport;
+
+    @Column
+    String username; //temp quick fix
+
+    /*@ManyToOne
+    @JoinColumn(name = "username1")
+    private User user; */
 }
