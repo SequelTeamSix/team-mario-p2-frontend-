@@ -46,8 +46,6 @@ public class EventController {
     }
 
     @PatchMapping
-    public void updateName(@RequestBody Event event){eventService.updateEvent(event);}
-
-    /*@PatchMapping
-    public void updateEventInfo(@RequestBody Event event){eventService.updateEventInfo(event);} */
+    public void updateEvent(@RequestBody Event event){eventService.updateEvent(event);}
+    
 }

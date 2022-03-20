@@ -37,12 +37,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
             " event.level=:level, event.sportname=:sportname where event.event_id=:event_id", nativeQuery = true)
     void updateEvent(String name, String place, String date, String time, String level, String sportname, int event_id);
 
-    /*@Modifying
-    @Query(value = "update event set event.place=:place, event.date=:date, event.time=:time, event.level=:level," +
-            " event.sportname=:sportname WHERE event.name=:name", nativeQuery = true)
-    void updateInfo(String place, String date, String time, String level, String sportname, String name); */
-
-
-
 }
 
