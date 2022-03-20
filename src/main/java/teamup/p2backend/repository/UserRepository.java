@@ -24,13 +24,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "delete from user1 where user1.username1=:username1", nativeQuery = true)
     void deleteByUsername(String username1);
 
-    //update(patch/put) 'methods'
+    //update(patch/put) method
     @Modifying
-    @Query(value = "update user1 set user1.username1=:username1 where user1.user_id1=:user_id1", nativeQuery = true)
-    void updateByUsername(String username1, int user_id1);
+    @Query(value = "update user1 set user1.username1=:username1, user1.fullname1=:fullname1," +
+            " user1.email1=:email1, user1.password1=:password1  where user1.user_id1=:user_id1", nativeQuery = true)
+    void updateByUser(String username1, String fullname1, String email1, String password1, int user_id1);
 
-    @Modifying
-    @Query(value = "update user set user1.fullname1=:fullname1, user1.email1=:email1, user1.password1=:password1, " +
-            "WHERE user1.username1=:username1", nativeQuery = true)
-    void updateInfo(String fullname1, String email1, String password1, String username1);
 }

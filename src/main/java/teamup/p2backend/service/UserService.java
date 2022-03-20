@@ -19,7 +19,7 @@ public class UserService {
 
     public List<User> findAllUsers() {
         return userRepository.findAll();
-    }
+    } //may not need
 
     public User saveUser(User user) {
         return userRepository.save(user);
@@ -32,14 +32,9 @@ public class UserService {
     public User findUserById(int user_id) {return userRepository.findById(user_id);}
 
     public User findUserByUsername(String username1){return userRepository.findByUsername1(username1);}
+    
+    //update(patch) method
+    public void updateUser(User user){userRepository.updateByUser(user.getUsername1(),
+            user.getFullname1(),user.getEmail1(), user.getPassword1(), user.getUser_id1());}
 
-    //public User findUserByEmail(String email){
-    //    return userRepository.findByEmail(email);
-    //}
-
-    //update(patch/put) methods
-    public void updateUsername(User user){userRepository.updateByUsername(user.getUsername1(), user.getUser_id1());}
-
-    public void updateUserInfo(User user){userRepository.updateInfo(user.getFullname1(),user.getEmail1(),
-            user.getPassword1(), user.getUsername1());}
 }

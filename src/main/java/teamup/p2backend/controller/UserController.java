@@ -43,9 +43,7 @@ public class UserController {
     }
 
     //@PatchMapping
-    @PatchMapping("updateusername")
-    public void updateUsername(@RequestBody User user){userService.updateUsername(user);}
-
     @PatchMapping
-    public void updateUserInfo(@RequestBody User user){userService.updateUserInfo(user);}
+    public void updateUser(@RequestBody User user){userService.updateUser(user);}
+
 }
