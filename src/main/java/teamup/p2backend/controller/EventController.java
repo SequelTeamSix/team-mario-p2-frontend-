@@ -45,9 +45,9 @@ public class EventController {
         eventService.deleteEvent(name);
     }
 
-    @PatchMapping("updateName")
-    public void updateEventName(@RequestBody Event event){eventService.updateEventName(event);}
-
     @PatchMapping
-    public void updateEventInfo(@RequestBody Event event){eventService.updateEventInfo(event);}
+    public void updateName(@RequestBody Event event){eventService.updateEvent(event);}
+
+    /*@PatchMapping
+    public void updateEventInfo(@RequestBody Event event){eventService.updateEventInfo(event);} */
 }

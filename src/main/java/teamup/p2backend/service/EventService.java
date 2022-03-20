@@ -40,8 +40,10 @@ public class EventService {
     public Event findEventByLevel(String level){return eventRepository.findByLevel(level);}
 
     //update
-    public void updateEventName(Event event){eventRepository.updateByName(event.getName(), event.getEvent_id());}
+    public void updateEvent(Event event){eventRepository.updateEvent(event.getName(), event.getPlace(),
+            event.getDate(), event.getTime(), event.getLevel(), event.getSport().getSportname(),
+            event.getEvent_id());}
 
-    public void updateEventInfo(Event event){eventRepository.updateInfo(event.getPlace(),event.getDate(),
-            event.getTime(), event.getLevel(), event.getSport().getSportname(), event.getName());}
+    /*public void updateEventInfo(Event event){eventRepository.updateInfo(event.getPlace(),event.getDate(),
+            event.getTime(), event.getLevel(), event.getSport().getSportname(), event.getName());} */
 }
