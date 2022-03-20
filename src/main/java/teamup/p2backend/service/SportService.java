@@ -26,17 +26,12 @@ public class SportService {
         return sportRepository.save(sport);
     }
 
-    public void deleteSport(int sport_id) {
-        sportRepository.deleteById(sport_id);
+    public void deleteSport(String sportname) {
+        sportRepository.deleteByName(sportname);
     }
 
-    //public Sport findSportByType(String sport_name) {
-    //   return sportRepository.findByType(sport_name);
-    // }
-
-    public Sport findSportById(int sport_id) {
-        return sportRepository.findById(sport_id);
+    public Sport findSport(String sportname) {
+        return sportRepository.findBySportname(sportname);
     }
 
-    //update(patch/put) method
 }

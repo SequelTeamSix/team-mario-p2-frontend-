@@ -1,13 +1,14 @@
 package teamup.p2backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import teamup.p2backend.model.Event;
 import teamup.p2backend.model.User;
 import teamup.p2backend.service.UserService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("user1") // ?
+@RequestMapping("user1")
 public class UserController {
 
     UserService userService;
@@ -20,25 +21,16 @@ public class UserController {
         return userService.findAllUsers();
     }
 
-    //@GetMapping("username/{username}")
-    //public User getUserByUsername(@PathVariable String username){
-    //    return userService.findUserByUsername(username);
-    //}
 
     @GetMapping("user_id1/{user_id}")
     public User getUserById(@PathVariable int user_id){
         return userService.findUserById(user_id);
     }
 
-    //@GetMapping("full_name/{full_name}")
-    //public User getUserByFullName(@PathVariable String full_name){
-    //    return userService.findUserByFullName(full_name);
-    //}
-
-    //@GetMapping("email/{email}")
-    //public User getUserByEmail(@PathVariable String email){
-    //    return userService.findUserByEmail(email);
-    //}
+    @GetMapping("username1/{username}")
+    public User getUserByUsername(@PathVariable String username){
+        return userService.findUserByUsername(username);
+    }
 
     @PostMapping
     public User postUser(@RequestBody User user){
@@ -46,9 +38,14 @@ public class UserController {
     }
 
     @DeleteMapping
-    public void deleteUser(@PathVariable int user_id){
-        userService.deleteUser(user_id);
+    public void deleteUser(@RequestParam String username1){
+        userService.deleteUser(username1);
     }
 
     //@PatchMapping
+    @PatchMapping("updateusername")
+    public void updateUsername(@RequestBody User user){userService.updateUsername(user);}
+
+    @PatchMapping
+    public void updateUserInfo(@RequestBody User user){userService.updateUserInfo(user);}
 }

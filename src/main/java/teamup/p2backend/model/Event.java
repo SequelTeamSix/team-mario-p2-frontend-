@@ -8,11 +8,11 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-/*@JsonIdentityInfo(
+@JsonIdentityInfo(
 
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "event_id" //
-)*/
+        property = "name" //
+)
 
 @Entity
 @Table(name="event")
@@ -21,23 +21,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 public class Event {
-     /* Event
-
-    EventID
-    Place <need to consult>
-    Date
-    Time
-    +Level
-    +Age Range
-     */
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column
     private int event_id;
-    @Column
-    private String event_name;
+    //@Id
+    //@Column
+    private String name;
     @Column
     private String place;
     @Column
@@ -46,9 +38,9 @@ public class Event {
     private String time;
     @Column
     private String level;
-    @Column
-    private String age_range;
 
     //relationship to other tables
-    //@JoinColumn Sport(/id)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "sportname")
+    private Sport sport;
 }

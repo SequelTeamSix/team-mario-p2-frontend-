@@ -8,11 +8,11 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-/*@JsonIdentityInfo(
+@JsonIdentityInfo(
 
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "sport_id" //
-)*/
+        property = "sportname" //
+)
 
 @Entity
 @Table(name="sport")
@@ -22,28 +22,8 @@ import javax.persistence.*;
 @ToString
 public class Sport {
 
-     /* Sports table
-
-    Sport ID
-    Sport name
-    (-)Level (beginner intermediate expert)
-    (-)Age range? (teen, 18+, children)
-    (-)Time
-    (-)Place
-      *moved (-) to Event table */
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column
-    private int sport_id;
-    @Column
-    private String sport_name;
+    private String sportname;
 
-    /*@Column
-    private String level;
-    @Column
-    private String age_range */
 
-    //need to consult on this-- join column or join table (??)
-    //JoinColumn w/ Event table
 }
