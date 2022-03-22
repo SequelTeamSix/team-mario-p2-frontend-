@@ -45,5 +45,6 @@ public class UserController {
     //@PatchMapping
     @PatchMapping
     public void updateUser(@RequestBody User user){userService.updateUser(user);}
+
 }
 
