@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 public class EventAspect {
     Logger logger = Logger.getLogger(EventAspect.class);
 
-    @Before("execution(* saveEvent*(..))")
+    @Before("execution(* postEvent*(..))")
     public void BeforeSavingEvent(JoinPoint joinPoint){
-        logger.info("Event Logged / Command signature:  " + joinPoint.getSignature());
+        logger.info("Post Event Logged / Command signature:  " + joinPoint.getSignature());
     }
 
     @Before("execution(* updateEvent*(..))")
@@ -22,9 +22,14 @@ public class EventAspect {
         logger.info("Updated Event / Command signature:  " + joinPoint.getSignature());
     }
 
-    @Before("execution(* getAllEvents*(..))")
+    @Before("execution(* getEvents*(..))")
     public void BeforeGettingAllEvent(JoinPoint joinPoint){
         logger.info("All Events Logged / Command signature:  " + joinPoint.getSignature());
+    }
+
+    @Before("execution(* getEventBy*(..))")
+    public void BeforeGettingEventBy(JoinPoint joinPoint){
+        logger.info("Get Event By Logged / Command signature:  " + joinPoint.getSignature());
     }
 
 }

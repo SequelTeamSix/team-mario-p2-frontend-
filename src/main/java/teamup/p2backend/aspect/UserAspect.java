@@ -13,7 +13,7 @@ public class UserAspect {
 
     Logger logger = Logger.getLogger(UserAspect.class);
 
-    @Before("execution(* createUser*(..))")
+    @Before("execution(* postUser*(..))")
     public void BeforeCreatingUser(JoinPoint joinPoint) {
         logger.info("User created / Command signature:  " + joinPoint.getSignature());
     }
@@ -23,18 +23,33 @@ public class UserAspect {
         logger.info("Every user retrieved / Command signature:  " + joinPoint.getSignature());
     }
 
-    @Before("execution(* getUsersById*(..))")
-    public void BeforeGettingUsersById(JoinPoint joinPoint) {
-        logger.info("User is retrieved by id / Command signature:  " + joinPoint.getSignature());
-    }
-    @After("execution(* getUsersById*(..))")
-    public void AfterGettingUsersById(JoinPoint joinPoint) {
-        logger.info("User is retrieved by id / Command signature:  " + joinPoint.getSignature());
+    @Before("execution(* postUser*(..))")
+    public void BeforePostingUser(JoinPoint joinPoint) {
+        logger.info("Executing: Post(create) User / Command signature:  " + joinPoint.getSignature());
     }
 
-    @Before("execution(* getUsersByUsername*(..))")
+    @Before("execution(* updateUser*(..))")
+    public void BeforeUpdatingUser(JoinPoint joinPoint) {
+        logger.info("Executing: Update User / Command signature:  " + joinPoint.getSignature());
+    }
+
+    @Before("execution(* deleteUser*(..))")
+    public void BeforeDeletingUser(JoinPoint joinPoint) {
+        logger.info("Executing: Update User / Command signature:  " + joinPoint.getSignature());
+    }
+
+    @Before("execution(* getUserById*(..))")
+    public void BeforeGettingUsersById(JoinPoint joinPoint) {
+        logger.info("Executing: User retrieved by id / Command signature:  " + joinPoint.getSignature());
+    }
+    @After("execution(* getUserById*(..))")
+    public void AfterGettingUsersById(JoinPoint joinPoint) {
+        logger.info("User retrieved by id / Command signature:  " + joinPoint.getSignature());
+    }
+
+    @Before("execution(* getUserByUsername*(..))")
     public void BeforeGettingUsersByUsername(JoinPoint joinPoint) {
-        logger.info("Users are retrieved by Username. Command signature:  " + joinPoint.getSignature());
+        logger.info("Executing: Retrieve User by Username. Command signature:  " + joinPoint.getSignature());
     }
 
 }
