@@ -16,14 +16,26 @@ import org.springframework.stereotype.Component;
 public class SportAspect {
     Logger logger = Logger.getLogger(SportAspect.class);
 
-    @Before("execution(* addSport*(..))")
+    @Before("execution(* postSport*(..))")
     public void BeforeAddingSport(JoinPoint joinPoint){
         logger.info("Sport addition logged / Command signature:  " + joinPoint.getSignature());
     }
 
-    @After("execution(* getAllSports*(..))")
-    public void BeforeGettingAllSport(JoinPoint joinPoint){
-        logger.info("All Sports Logged / Command signature:  " + joinPoint.getSignature());
+    @Before("execution(* deleteSport*(..))")
+    public void BeforeDeletingSport(JoinPoint joinPoint){
+        logger.info("Executing: Delete sport logged / Command signature:  " + joinPoint.getSignature());
     }
+
+    @Before("execution(* getSport*(..))")
+    public void BeforeGettingASport(JoinPoint joinPoint){
+        logger.info("Executing: Get (a) sport logged / Command signature:  " + joinPoint.getSignature());
+    }
+
+    @After("execution(* getSports*(..))")
+    public void BeforeGettingAllSport(JoinPoint joinPoint){
+        logger.info("Retrieving All Sports Logged / Command signature:  " + joinPoint.getSignature());
+    }
+
+
 
 }

@@ -15,3 +15,22 @@
 2022-03-23 13:20:23 INFO  P2BackendApplication:21 - Initiating Backend Logs
 2022-03-23 13:29:30 INFO  P2BackendApplication:21 - Initiating Backend Logs
 2022-03-23 13:47:19 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:14:03 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:15:15 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:18:19 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:20:26 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:21:45 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:21:59 INFO  EventAspect:27 - All Events Logged / Command signature:  List teamup.p2backend.controller.EventController.getEvents()
+2022-03-23 15:33:25 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:34:45 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:35:09 INFO  SportAspect:31 - Executing: Get (a) sport logged / Command signature:  Sport teamup.p2backend.controller.SportController.getSport(String)
+2022-03-23 15:42:38 INFO  SportAspect:21 - Sport addition logged / Command signature:  Sport teamup.p2backend.controller.SportController.postSport(Sport)
+2022-03-23 15:44:17 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.controller.SportController.deleteSport(String)
+2022-03-23 15:44:17 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.service.SportService.deleteSport(String)
+2022-03-23 15:46:33 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.controller.SportController.deleteSport(String)
+2022-03-23 15:46:33 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.service.SportService.deleteSport(String)
+2022-03-23 15:50:10 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:51:28 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:52:54 INFO  P2BackendApplication:21 - Initiating Backend Logs
+2022-03-23 15:55:00 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.controller.SportController.deleteSport(String)
+2022-03-23 15:55:00 INFO  SportAspect:26 - Executing: Delete sport logged / Command signature:  void teamup.p2backend.service.SportService.deleteSport(String)
