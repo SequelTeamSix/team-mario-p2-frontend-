@@ -1,20 +1,16 @@
 package teamup.p2backend.aspect;
 
-import teamup.p2backend.model.Event;
-import teamup.p2backend.controller.EventController;
-
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.hibernate.mapping.Join;
 import org.springframework.stereotype.Component;
 @Component
 @Aspect
 
 
-public class P2EventAspect {
-    Logger logger = Logger.getLogger(P2EventAspect.class);
+public class EventAspect {
+    Logger logger = Logger.getLogger(EventAspect.class);
 
     @Before("execution(* saveEvent*(..))")
     public void BeforeSavingEvent(JoinPoint joinPoint){

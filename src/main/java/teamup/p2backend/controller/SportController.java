@@ -14,6 +14,7 @@ public class SportController {
     @Autowired
     public SportController(SportService sportService){this.sportService = sportService;}
 
+   // @CrossOrigin(origins = "http://localhost:9000")
     @GetMapping
     List<Sport> getSports(){
         return sportService.findAllSports();
