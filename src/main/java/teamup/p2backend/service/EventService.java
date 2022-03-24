@@ -45,7 +45,7 @@ public class EventService {
 
     //update
     public void updateEvent(Event event){eventRepository.updateEvent(event.getName(), event.getPlace(),
-            event.getDate(), event.getTime(), event.getLevel(), event.getSport().getSportname(),
+            event.getDate(), event.getTime(), event.getLevel(), event.getSport(),
             event.getEvent_id());}
 
 }

@@ -7,9 +7,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import teamup.p2backend.model.Event;
-import teamup.p2backend.model.Sport;
 import teamup.p2backend.repository.EventRepository;
-import teamup.p2backend.repository.SportRepository;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,22 +17,22 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 public class EventRepositoryTest {
 
-    Sport sp1;
-    Sport sp2;
+    /*Sport sp1;
+    Sport sp2;*/
 
     @Autowired
     private EventRepository eventRepository;
 
-    @Autowired
-    private SportRepository sportRepository;
+   /* @Autowired
+    private SportRepository sportRepository;*/
 
     @BeforeEach
     void TestCase() {
-        Sport sp1 = new Sport("Hockey");
+        /*Sport sp1 = new Sport("Hockey");
         Sport sp2 = new Sport("BasketBall");
-        sportRepository.save(sp1);
+        sportRepository.save(sp1); */
         List<Event> eventList = Arrays.asList(
-                new Event(999,"Ozy","House","date","12","expert",sp1,"Ozymandius")
+                new Event(999,"Ozy","House","date","12","expert","Hockey","Ozymandius")
         );
         eventRepository.saveAll(eventList);
     }
@@ -45,8 +44,8 @@ public class EventRepositoryTest {
     @Test
     void saveAll() {
         List<Event> eventList = Arrays.asList(
-                new Event(998,"William","Park","date","12","expert",sp1,"noWill"),
-                new Event(997,"Billiam","Gym","date","12","expert",sp2,"2Bill")
+                new Event(998,"William","Park","date","12","expert","Hockey","noWill"),
+                new Event(997,"Billiam","Gym","date","12","expert","Basketball","2Bill")
         );
 
         Iterable<Event> allEvent = eventRepository.saveAll(eventList);

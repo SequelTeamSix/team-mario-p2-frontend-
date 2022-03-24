@@ -8,11 +8,11 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@JsonIdentityInfo(
+/*@JsonIdentityInfo(
 
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "name" //
-)
+)*/
 
 @Entity
 @Table(name="event")
@@ -39,9 +39,12 @@ public class Event {
     private String level;
 
     //relationship to other tables
-    @ManyToOne(fetch = FetchType.EAGER)
+    /*@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportname")
-    private Sport sport;
+    private Sport sport; */
+
+    @Column
+    String sport;
 
     @Column
     String username; //temp quick fix
