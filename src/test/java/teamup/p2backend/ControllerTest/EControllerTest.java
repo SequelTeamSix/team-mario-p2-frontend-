@@ -77,11 +77,11 @@ public class EControllerTest {
 
     @Test
     public void getEventBySport() throws Exception {
-        Mockito.when(eventService.findEventBySport(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Hockey", "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/sportname/soccer"))
+        Mockito.when(eventService.findEventBySport(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Soccer", "Ozymandius"));
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/sport/soccer"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\":\"Hockey\", \"username\": \"Ozymandius\"}"));
+                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\":\"Soccer\", \"username\": \"Ozymandius\"}"));
     }
 
     @Test

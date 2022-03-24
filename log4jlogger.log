@@ -55,3 +55,6 @@
 2022-03-24 14:11:08 INFO  P2BackendApplication:12 - Initiating Backend Logs
 2022-03-24 14:12:52 INFO  EventAspect:17 - Post Event Logged / Command signature:  Event teamup.p2backend.controller.EventController.postEvent(Event)
 2022-03-24 14:13:21 INFO  EventAspect:32 - Get Event By Logged / Command signature:  Event teamup.p2backend.controller.EventController.getEventByName(String)
+2022-03-24 14:26:45 INFO  P2BackendApplication:12 - Initiating Backend Logs
+2022-03-24 14:27:18 INFO  UserAspect:18 - User created / Command signature:  User teamup.p2backend.controller.UserController.postUser(User)
+2022-03-24 14:27:18 INFO  UserAspect:28 - Executing: Post(create) User / Command signature:  User teamup.p2backend.controller.UserController.postUser(User)
