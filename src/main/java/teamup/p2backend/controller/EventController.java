@@ -17,38 +17,47 @@ public class EventController {
         this.eventService = eventService;
     }
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     List<Event> getEvents(){
         return eventService.findAllEvents();
     }
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("name/{name}")
     public Event getEventByName(@PathVariable String name){return eventService.findEventByName(name);}
 
     //works
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("sportname/{sportname}")
     public Event getEventBySport(@PathVariable String sportname){return eventService.findEventBySport(sportname);}
 
     //works
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("place/{place}")
     public Event getEventByPlace(@PathVariable String place){return eventService.findEventByPlace(place);}
 
     //works
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("level/{level}")
     public Event getEventByLevel(@PathVariable String level){return eventService.findEventByLevel(level);}
 
     //get event by username -- in progress
+    // @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("username/{username}")
     public Event getEventByUser(@PathVariable String username){return eventService.findEventByUser(username);}
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public Event postEvent(@RequestBody Event event){return eventService.saveEvent(event);}
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping
     public void deleteEvent(@RequestParam String name){
         eventService.deleteEvent(name);
     }
 
+    // @CrossOrigin(origins = "http://localhost:3000")
     @PatchMapping
     public void updateEvent(@RequestBody Event event){eventService.updateEvent(event);}
 
