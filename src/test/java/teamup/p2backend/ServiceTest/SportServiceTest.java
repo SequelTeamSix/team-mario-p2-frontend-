@@ -1,24 +1,16 @@
 package teamup.p2backend.ServiceTest;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import teamup.p2backend.controller.SportController;
-import teamup.p2backend.model.Event;
 import teamup.p2backend.model.Sport;
-import teamup.p2backend.repository.EventRepository;
 import teamup.p2backend.repository.SportRepository;
-import teamup.p2backend.service.EventService;
 import teamup.p2backend.service.SportService;
-
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 @AutoConfigureMockMvc
