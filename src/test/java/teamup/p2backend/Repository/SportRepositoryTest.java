@@ -1,5 +1,4 @@
 package teamup.p2backend.Repository;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,15 +6,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import teamup.p2backend.model.Event;
 import teamup.p2backend.model.Sport;
 import teamup.p2backend.repository.EventRepository;
 import teamup.p2backend.repository.SportRepository;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
