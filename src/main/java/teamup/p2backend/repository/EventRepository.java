@@ -17,8 +17,8 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     Event findByName(String name);
 
     //works
-    @Query(value= "Select * from event where event.sportname=:sportname", nativeQuery = true)
-    Event findBySport(String sportname);
+    @Query(value= "Select * from event where event.sport=:sport", nativeQuery = true)
+    Event findBySport(String sport);
 
     //works
     @Query(value = "Select * from event where event.place=:place", nativeQuery = true)
@@ -31,16 +31,16 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     @Query(value = "Select * from event where event.username=:username", nativeQuery = true)
     Event findByUser(String username);
 
-    //delete
+    //this is delete method
     @Modifying
     @Query(value = "delete from event where event.name=:name", nativeQuery = true)
     void deleteByName(String name);
 
-    //update(patch method)
+    //this is an update(patch method)
     @Modifying
     @Query(value = "update event set event.name=:name, event.place=:place, event.date=:date, event.time=:time," +
-            " event.level=:level, event.sportname=:sportname where event.event_id=:event_id", nativeQuery = true)
-    void updateEvent(String name, String place, String date, String time, String level, String sportname, int event_id);
+            " event.level=:level, event.sport=:sport where event.event_id=:event_id", nativeQuery = true)
+    void updateEvent(String name, String place, String date, String time, String level, String sport, int event_id);
 
 }
 

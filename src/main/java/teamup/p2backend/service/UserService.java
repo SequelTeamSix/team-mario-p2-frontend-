@@ -33,7 +33,7 @@ public class UserService {
 
     public User findUserByUsername(String username1){return userRepository.findByUsername1(username1);}
     
-    //update(patch) method
+    //this is an update(patch) method
     public void updateUser(User user){userRepository.updateByUser(user.getUsername1(),
             user.getFullname1(),user.getEmail1(), user.getPassword1(), user.getUser_id1());}
 
