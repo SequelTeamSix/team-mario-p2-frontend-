@@ -8,25 +8,26 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import teamup.p2backend.controller.SportController;
+//import teamup.p2backend.controller.SportController;
+import teamup.p2backend.controller.EventController;
 import teamup.p2backend.model.Event;
-import teamup.p2backend.model.Sport;
+//import teamup.p2backend.model.Sport;
 import teamup.p2backend.repository.EventRepository;
 import teamup.p2backend.service.EventService;
-import teamup.p2backend.service.SportService;
+//import teamup.p2backend.service.SportService;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(SportController.class)
+//@WebMvcTest(EventController.class)
 @ExtendWith(MockitoExtension.class)
 public class EServiceTest {
     @MockBean
     EventRepository eventRepository;
 
-    @MockBean
-    SportService sportService;
+    //@MockBean
+    //SportService sportService;
 
     @InjectMocks
     EventService eventService;
@@ -38,7 +39,7 @@ public class EServiceTest {
 
     @Test
     public void saveTest() {
-        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", new Sport("JumpRope"), "Ozymandius");
+        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", "JumpRope", "Ozymandius");
 
         eventService.saveEvent(eve1);
 
@@ -48,7 +49,7 @@ public class EServiceTest {
 
     @Test
     public void findTest() {
-        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", new Sport("JumpRope"), "Ozymandius");
+        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", "JumpRope", "Ozymandius");
         eventService.saveEvent(eve1);
         eventService.findEventByName("Ozy");
 
@@ -58,7 +59,7 @@ public class EServiceTest {
 
     @Test
     public void deleteTest() {
-        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", new Sport("JumpRope"), "Ozymandius");
+        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", "JumpRope", "Ozymandius");
         eventService.saveEvent(eve1);
         eventService.deleteEvent("Ozy");
 
@@ -67,7 +68,7 @@ public class EServiceTest {
 
     @Test
     public void updateTest() {
-        Event eve2 = new Event(999, "Bob", "Park", "April", "12", "expert", new Sport("JumpRope"), "Ozymandius");
+        Event eve2 = new Event(999, "Bob", "Park", "April", "12", "expert", "JumpRope", "Ozymandius");
         eventService.updateEvent(eve2);
 
         verify(eventRepository, times(1)).updateEvent("Bob","Park","April","12","expert", "JumpRope", 999);

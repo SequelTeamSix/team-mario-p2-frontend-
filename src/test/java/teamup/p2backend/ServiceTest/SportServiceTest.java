@@ -1,4 +1,4 @@
-package teamup.p2backend.ServiceTest;
+/*package teamup.p2backend.ServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,3 +56,5 @@ public class SportServiceTest {
         verify(sportRepository, times(1)).deleteByName("Bowling");
     }
 }
+
+ */

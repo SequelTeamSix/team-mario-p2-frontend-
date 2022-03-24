@@ -1,4 +1,6 @@
+/*
 package teamup.p2backend.ControllerTest;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,3 +78,4 @@ public class SControllerTest {
     }
 
 }
+/*/

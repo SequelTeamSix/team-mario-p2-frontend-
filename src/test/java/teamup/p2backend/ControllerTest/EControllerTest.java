@@ -19,7 +19,7 @@ import teamup.p2backend.service.EventService;
 
 
 
-import teamup.p2backend.service.SportService;
+//import teamup.p2backend.service.SportService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +48,8 @@ public class EControllerTest {
     @MockBean
     private EventRepository eventRepository;
 
-
-   // @MockBean
-   // private SportService sportService;
-
-    @MockBean
-    private SportService sportService;
-
+    // @MockBean
+    // private SportService sportService;
 
     private List<Event> eventList;
 
@@ -65,10 +60,6 @@ public class EControllerTest {
         Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", "Hockey", "Ozymandius");
         Event eve2 = new Event(998, "Billiam", "Park", "May", "12", "Beginner", "Basketball", "11DollarBill");
 
-        Event eve1 = new Event(999, "Ozy", "House", "April", "12", "expert", null, "Ozymandius");
-        Event eve2 = new Event(998, "Billiam", "Park", "May", "12", "Beginner", null, "11DollarBill");
-
-
         eventList.add(eve1);
         eventList.add(eve2);
     }
@@ -78,21 +69,11 @@ public class EControllerTest {
     public void saveTest() throws Exception {
         Mockito.when(eventRepository.save(any(Event.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Hockey", "Ozymandius"));
         this.mockMvc.perform(post("/event")
-                        .content("{\"event_id\": 999, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"date\", \"time\": \"12\", \"level\": \"expert\", \"sport\": \"sport\", \"username\": \"Ozymandius\"}")
-
-//-------------post testing
-    @Test
-    public void saveTest() throws Exception {
-        Mockito.when(eventRepository.save(any(Event.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(post("/event")
-                        .content("{\"event_id\": 999, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"date\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}")
-
+                        .content("{\"event_id\": 999, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"date\", \"time\": \"12\", \"level\": \"expert\", \"sport\": \"Hockey\", \"username\": \"Ozymandius\"}")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
-
-    //-----------get testing
 
 //-----------get testing
 
@@ -113,12 +94,6 @@ public class EControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\":\"Soccer\", \"username\": \"Ozymandius\"}"));
 
-        Mockito.when(eventService.findEventBySport(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/sportname/soccer"))
-                .andDo(print())
-                .andExpect(status().isOk())
-        .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}"));
-
     }
 
     @Test
@@ -129,12 +104,6 @@ public class EControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": \"Hockey\", \"username\": \"Ozymandius\"}"));
-
-        Mockito.when(eventService.findEventByName(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/name/Ozzy"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}"));
 
     }
 
@@ -156,6 +125,7 @@ public class EControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": \"Hockey\", \"username\": \"Ozymandius\"}"));
     }
+
     @Test
     public void getEventByPlace() throws Exception {
         Mockito.when(eventService.findEventByPlace(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Hockey", "Ozymandius"));
@@ -164,36 +134,10 @@ public class EControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": \"Hockey\", \"username\": \"Ozymandius\"}"));
     }
+
     @Test
     public void delete() throws Exception {
         Mockito.when(eventRepository.findByName("Ozzy")).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Hockey", "Ozymandius"));
-
-        Mockito.when(eventService.findEventByLevel(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/level/expert"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}"));
-    }
-    @Test
-    public void getEventByUsername() throws Exception {
-        Mockito.when(eventService.findEventByUser(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/username/Ozymandius"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}"));
-    }
-    @Test
-    public void getEventByPlace() throws Exception {
-        Mockito.when(eventService.findEventByPlace(any(String.class))).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/event/place/place"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"event_id\": 998, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"April\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}"));
-    }
-    @Test
-    public void delete() throws Exception {
-        Mockito.when(eventRepository.findByName("Ozzy")).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-
 
         eventRepository.deleteByName("Ozzy");
 
@@ -205,22 +149,12 @@ public class EControllerTest {
         Mockito.when(eventRepository.findByName("Ozzy")).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", "Hockey", "Ozymandius"));
         this.mockMvc.perform(patch("/event")
                         .content("{\"event_id\": 999, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"date\", \"time\": \"12\", \"level\": \"expert\", \"sport\":\"Hockey\", \"username\": \"Ozymandius\"}")
-
-        Mockito.when(eventRepository.findByName("Ozzy")).thenReturn(new Event(998, "Ozzy", "House", "April", "12", "expert", null, "Ozymandius"));
-        this.mockMvc.perform(patch("/event")
-                        .content("{\"event_id\": 999, \"name\": \"Ozzy\", \"place\": \"House\", \"date\": \"date\", \"time\": \"12\", \"level\": \"expert\", \"sport\": null, \"username\": \"Ozymandius\"}")
-
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
 }
-
-
-
-
-
 
 
 
