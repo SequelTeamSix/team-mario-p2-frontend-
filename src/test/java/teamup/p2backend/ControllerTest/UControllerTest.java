@@ -1,4 +1,4 @@
-/*
+
 package teamup.p2backend.ControllerTest;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -13,12 +13,15 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import teamup.p2backend.controller.SportController;
-import teamup.p2backend.model.Sport;
-import teamup.p2backend.repository.SportRepository;
-import teamup.p2backend.service.SportService;
+import teamup.p2backend.controller.UserController;
+import teamup.p2backend.model.User;
+import teamup.p2backend.repository.UserRepository;
+import teamup.p2backend.service.UserService;
+
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -27,55 +30,50 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(SportController.class)
-public class SControllerTest {
+@WebMvcTest(UserController.class)
+public class UControllerTest {
 
         @Autowired
         private MockMvc mockMvc;
 
         @MockBean
-        private SportRepository sportRepository;
+        private UserRepository userRepository;
 
         @MockBean
-        private SportService sportService;
+        private UserService userService;
 
-        private List<Sport> sportList;
+        private List<User> userList;
 
         @BeforeEach
         void setUp() {
-            List<Sport> sportList = new ArrayList<>();
-            Sport sp1 = new Sport("BasketBall");
-            Sport sp2 = new Sport("Soccer");
-            sportList.add(sp1);
-            sportList.add(sp2);
+            User sp1 = new User(999,"20DollarBill","Billiam", "billaimWilliam@rocketmail","password");
         }
     @Test
     public void saveTest() throws Exception {
-        Sport sp1 = new Sport("Hockey");
-        Mockito.when(sportService.saveSport(any(Sport.class))).thenReturn(sp1);
-        this.mockMvc.perform(post("/sport")
-                        .content("{\"sportname\": \"Hockey\"}")
+        User sp1 = new User(999,"20DollarBill","Billiam", "billaimWilliam@rocketmail","password");
+        Mockito.when(userService.saveUser(any(User.class))).thenReturn(sp1);
+        this.mockMvc.perform(post("/user1")
+                        .content("{\"user_id1\": 999, \"username1\": \"20DollarBill\", \"fullname1\": \"Billiam\", \"email1\": \"billiamWilliam@rocketmail\", \"password1\": \"password\"}")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
     @Test
-    public void getSport() throws Exception {
-        Mockito.when(sportService.findSport(any(String.class))).thenReturn(new Sport("soccer"));
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/sport/sportname/soccer"))
+    public void getUser() throws Exception {
+        Mockito.when(userService.findUserByUsername(any(String.class))).thenReturn(new User(999,"20DollarBill","Billiam", "billaimWilliam@rocketmail","password"));
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/user1/username1/20DollarBill"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"sportname\": \"soccer\"}"));
+                .andExpect(content().json("{\"user_id1\": 999, \"username1\": \"20DollarBill\", \"fullname1\": \"Billiam\", \"email1\": \"billaimWilliam@rocketmail\", \"password1\": \"password\"}"));
     }
 
     @Test
     public void delete() throws Exception {
-        Mockito.when(sportRepository.findBySportname("soccer")).thenReturn(new Sport("soccer"));
+        Mockito.when(userRepository.findByUsername1("20DollarBill")).thenReturn(new User(999,"20DollarBill","Billiam", "billaimWilliam@rocketmail","password"));
 
-        sportRepository.deleteByName("soccer");
+        userRepository.deleteByUsername("20DollarBill");
 
-        verify(sportRepository, times(1)).deleteByName("soccer");
+        verify(userRepository, times(1)).deleteByUsername("20DollarBill");
     }
 
 }
-/*/
