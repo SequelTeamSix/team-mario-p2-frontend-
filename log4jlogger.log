@@ -59,3 +59,4 @@
 2022-03-24 14:27:18 INFO  UserAspect:18 - User created / Command signature:  User teamup.p2backend.controller.UserController.postUser(User)
 2022-03-24 14:27:18 INFO  UserAspect:28 - Executing: Post(create) User / Command signature:  User teamup.p2backend.controller.UserController.postUser(User)
 2022-03-24 17:12:28 INFO  P2BackendApplication:12 - Initiating Backend Logs
+2022-03-25 11:55:08 INFO  P2BackendApplication:12 - Initiating Backend Logs
