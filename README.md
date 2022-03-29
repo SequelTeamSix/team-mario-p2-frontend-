@@ -3,12 +3,22 @@
 
 # TeamUp
 
-TeamUp is a full-stack java application developed by founders Mario Portilla, Prakash Shankar, Kyle Polner, Josue Rodriguez, and Vivian Trevino. The overall purpose of TeamUp is to help people find sporting events locally that they would not be able to find otherwise. This solves a huge issue problem that many people face in their respective communities.
-
+TeamUp is a full-stack java application developed by Mario Portilla, Prakash Shankar, Kyle Polner, Josue Rodriguez, and Vivian Trevino. The overall purpose of TeamUp is to help people find sporting events locally that they would not be able to find otherwise. 
 ## Description
 
 How many times have you wanted to be outside and active but have no one or no where to do it? How about just wanting to play your favorite sport but again you dont have any friends your age that you can call for a pick up game? Here at TeamUp, we all had similar experiences and found data that suggests in todays technology driven world, people are becoming less and less active. So, we decided to do something about it and together we developed TeamUp, a revolutionary application that will change how you sport forever. TeamUp allows people who are looking for pick up games to connect with eachother effortlessly by skill level, location, and sport. You are able to create new events, attend events of any sport you can find, as well as cancel or change venues at will. We want to be the reason people look forward to going outside again!
 Please enjoy our application, and we hope that you have a ton of fun, stay healthy and make many friends in your TeamUp adventures.
+
+## Features
+
+```bash
+-Sign up page
+-Log in Page
+-Event Creator
+-Ability to find pick up games quickly
+-Find local sporting activites or events wherever you are
+-Complete CRUD capabilities
+```
 
 ## Built With
 
@@ -24,23 +34,27 @@ Mockito, JUnit
 
 ## Installation
 
-
 ```bash
+git clone https://github.com/SequelTeamSix/team-mario-p2-frontend-
 npm --version
 pip install 
 npm install npm@latest -g
-npm install
+npm install 
 npm install axios
 npm start
 ```
 
+
 ## Usage
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+-The Home page can be seen in this screenshot
+![image](https://user-images.githubusercontent.com/75400065/160510520-7ed3d41f-f6f1-4208-aae3-e4ef9a248ea7.png)
+-To access the web application you need to create an account and log in
+![image](https://user-images.githubusercontent.com/75400065/160512799-be6210ea-f269-4b8a-8b1d-5bb4f3950236.png)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-
 
 
 
