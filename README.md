@@ -12,12 +12,12 @@ Please enjoy our application, and we hope that you have a ton of fun, stay healt
 ## Features
 
 ```bash
--Sign up page
--Log in Page
--Event Creator
--Ability to find pick up games quickly
--Find local sporting activites or events wherever you are
--Complete CRUD capabilities
+- Sign up page
+- Log in Page
+- Event Creator
+- Ability to find pick up games quickly
+- Find local sporting activites or events wherever you are
+- Complete CRUD capabilities
 ```
 
 ## Built With
@@ -47,9 +47,9 @@ npm start
 
 ## Usage
 
--The Home page can be seen in this screenshot
+- The Home page can be seen in this screenshot
 ![image](https://user-images.githubusercontent.com/75400065/160510520-7ed3d41f-f6f1-4208-aae3-e4ef9a248ea7.png)
--To access the web application you need to create an account and log in
+- To access the web application you need to create an account and log in
 ![image](https://user-images.githubusercontent.com/75400065/160512799-be6210ea-f269-4b8a-8b1d-5bb4f3950236.png)
 
 
